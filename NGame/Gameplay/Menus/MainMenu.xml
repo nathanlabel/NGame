@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Menu>
+  <Position>
+    <X>50</X>
+    <Y>50</Y>
+  </Position>
+  <MenuObjects>
+    <MenuObject>
+      <Type>TextObject</Type>
+      <Text>Nathan's Cool Main Title</Text>
+      <TextColor>Green</TextColor>
+      <BackgroundEnabled>True</BackgroundEnabled>
+      <BackgroundColor>Blue</BackgroundColor>
+      <Font>Default</Font>
+      <Position>
+        <X>50</X>
+        <Y>50</Y>
+      </Position>
+    </MenuObject>
+    <MenuObject>
+      <Type>TextObject</Type>
+      <Text>Nathan's Cool Main Title 2</Text>
+      <TextColor>Green</TextColor>
+      <BackgroundEnabled>True</BackgroundEnabled>
+      <BackgroundColor>Blue</BackgroundColor>
+      <Font>Default</Font>
+      <Position>
+        <X>50</X>
+        <Y>100</Y>
+      </Position>
+    </MenuObject>
+  </MenuObjects>
+</Menu>
