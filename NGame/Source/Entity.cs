@@ -11,11 +11,9 @@ namespace NGame.Source
     {
         public Entity Owner { get; set; }
         public bool Enabled { get; set; } = true;
-        public Vector2 Position { get; set; }
-        public Entity()
-        {
-            Position = Vector2.Zero;
-        }
+        public virtual Vector2 Position { get; set; } = Vector2.Zero;
+        public virtual Vector2 Dimension { get; protected set; } = new Vector2(1, 1);
+        public float Rotation { get; set; } = 0f;
 
         public virtual void Update(GameTime gameTime)
         {

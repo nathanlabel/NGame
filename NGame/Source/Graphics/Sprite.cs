@@ -10,36 +10,19 @@ namespace NGame.Source.Graphics
 {
     public class Sprite : Entity, IDraw
     {
-        public Texture2D Texture { get; protected set; }
+        protected Texture2D Texture { get; set; }
         protected Rectangle SourceRectangle { get; set; }
-        protected Rectangle DestinationRectangle { get; set; }
         public bool Visible { get; set; } = true;
-        protected Vector2 Origin
-        {
-            get
-            {
-                return new Vector2(Texture.Width / 2, Texture.Height / 2);
-            }
-        }
-        public float Rotation { get; set; } = 0f;
 
         public Sprite(string texturePath)
         {
             LoadTexture(texturePath);
             SourceRectangle = new Rectangle(0, 0, Texture.Width, Texture.Height);
-            DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
         }
-        public Sprite(string texturePath, Rectangle destinationRectangle)
-        {
-            LoadTexture(texturePath);
-            SourceRectangle = new Rectangle(0, 0, Texture.Width, Texture.Height);
-            DestinationRectangle = destinationRectangle;
-        }
-        public Sprite(string texturePath, Rectangle destinationRectangle, Rectangle sourceRectangle)
+        public Sprite(string texturePath, Rectangle sourceRectangle)
         {
             LoadTexture(texturePath);
             SourceRectangle = sourceRectangle;
-            DestinationRectangle = destinationRectangle;
         }
 
         protected virtual void LoadTexture(string path)

@@ -12,6 +12,7 @@ namespace NGame.Source
 {
     public class Globals
     {
+        public const float Scale = 32f;
         public static SpriteBatch spriteBatch;
         public static ContentManager Content;
         public static GraphicsDeviceManager graphicsDevice;
