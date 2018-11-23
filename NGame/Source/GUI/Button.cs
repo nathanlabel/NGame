@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using NGame.Source.Input;
 
 namespace NGame.Source.GUI
 {
@@ -13,25 +14,14 @@ namespace NGame.Source.GUI
     {
         private Texture2D _NormalTexture;
         private Texture2D _MouseOverTexture;
-        private bool _IsMouseOver
-        {
-            get
-            {
-                Vector2 mousePosition = Globals.Mouse.Position;
-                if (_NormalTexture != null)
-                    if (Width > 0 && Height > 0)
-                    {
-                        if (mousePosition.X >= AbsolutePosition.X && mousePosition.Y >= AbsolutePosition.Y)
-                            if (mousePosition.X <= AbsolutePosition.X + Width && mousePosition.Y <= AbsolutePosition.Y + Height)
-                                return true;
-                    }
-                return false;
-            }
-        }
+        private bool _MouseOver = false;
+
+        public delegate void CommandDelegate(Entity sender);
 
         public override float Width { get; protected set; }
         public override float Height { get; protected set; }
         public bool MouseOverGraphicEnabled { get; set; } = true;
+        public CommandDelegate ButtonCommand;
 
         public Button()
         {
@@ -54,12 +44,12 @@ namespace NGame.Source.GUI
         {
             if (Visible)
             {
-                if (_IsMouseOver && _MouseOverTexture != null)
+                if (_MouseOver && _MouseOverTexture != null)
                 {
                     Globals.spriteBatch.Draw(_MouseOverTexture, new Rectangle((int)AbsolutePosition.X, (int)AbsolutePosition.Y, 
                         (int)Width, (int)Height), Color.White);
                 }
-                else if (_NormalTexture != null)
+                else
                 {
                     Globals.spriteBatch.Draw(_NormalTexture, new Rectangle((int)AbsolutePosition.X, (int)AbsolutePosition.Y,
                         (int)Width, (int)Height), Color.White);
@@ -70,11 +60,28 @@ namespace NGame.Source.GUI
         {
             if (Enabled)
             {
-
+                _MouseOver = IsMouseOver();
+                if (_MouseOver && Globals.Mouse.OldState.LeftButton == ButtonState.Pressed 
+                    && Globals.Mouse.NewState.LeftButton == ButtonState.Released)
+                {
+                    ButtonCommand?.Invoke(this);
+                }
             }
             base.Update(gameTime);
         }
 
+        private bool IsMouseOver()
+        {
+            Vector2 mousePosition = Globals.Mouse.Position;
+            if (_NormalTexture != null)
+                if (Width > 0 && Height > 0)
+                {
+                    if (mousePosition.X >= AbsolutePosition.X && mousePosition.Y >= AbsolutePosition.Y)
+                        if (mousePosition.X <= AbsolutePosition.X + Width && mousePosition.Y <= AbsolutePosition.Y + Height)
+                            return true;
+                }
+            return false;
+        }
         private void SetTextures(string normalTexturePath, string mouseOverTexturePath)
         {
             LoadNormalTexturePath(normalTexturePath);

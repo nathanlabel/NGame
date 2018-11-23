@@ -4,7 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/tribeca/source/repos/NGame/NGame/Content/Default.spritefont</File>
+    <File>C:/source/NGame/NGame/Content/Default.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

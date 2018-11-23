@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/tribeca/source/repos/NGame/NGame/Content/Default.spritefont</SourceFile>
-  <SourceTime>2018-09-23T22:55:46+01:00</SourceTime>
-  <DestFile>C:/Users/tribeca/source/repos/NGame/NGame/Content/bin/Windows/Content/Default.xnb</DestFile>
-  <DestTime>2018-11-19T20:37:11.9094104+00:00</DestTime>
+  <SourceFile>C:/source/NGame/NGame/Content/Default.spritefont</SourceFile>
+  <SourceTime>2018-11-23T08:29:51.4620476+00:00</SourceTime>
+  <DestFile>C:/source/NGame/NGame/Content/bin/Windows/Content/Default.xnb</DestFile>
+  <DestTime>2018-11-23T08:30:48.0257285+00:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-09-23T22:55:52+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
